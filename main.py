@@ -110,11 +110,21 @@ def add_railcard():
     if select.first_selected_option.text != RAILCARD:
         select.select_by_visible_text(RAILCARD)
 
+    find_elements_by_css_selector('button')[-1].click()
+
+def find_times_and_tickets():
+    find_element_by_css_selector('button[type="submit"]').click()
+
+def destination_or_arrival(destination_or_arrival, leaving_station):
+    shadow_root = get_shadow_root()
+    input = shadow_root.find_element(By.NAME, "stationFrom")
+    input.send_keys(leaving_station)
 
 close_cookie_popup()
 select_return_button()
 select_calendar_details("Return", DEPARTING_DATE, DEPART_DEPARTURE_OR_ARRIVAL, DEPART_TIME)
 select_calendar_details("Arrive", ARRIVING_DATE, ARRIVE_DEPARTURE_OR_ARRIVAL, ARRIVE_TIME)
 add_railcard()
+find_times_and_tickets()
 
 driver.close()
