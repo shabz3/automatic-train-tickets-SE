@@ -6,8 +6,8 @@ from selenium.webdriver.support.ui import Select
 import dateparser
 import datetime
 import time
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+
+
 from dotenv import load_dotenv
 import os
 from driver import *
@@ -26,7 +26,7 @@ def find_elements_by_css_selector(shadow_root, css):
     return shadow_root.find_elements(By.CSS_SELECTOR, css)
 
 
-def close_cookie_popup():
+def close_cookie_popup(driver):
     cookies_button = driver.find_element(By.CSS_SELECTOR, "a").text
     if cookies_button == "Allow All Cookies":
         click_cookie_button = driver.find_element(By.LINK_TEXT, "Allow All Cookies")
