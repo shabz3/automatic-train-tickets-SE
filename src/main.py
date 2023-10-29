@@ -2,6 +2,7 @@ from booking_details import *
 from driver import *
 from dotenv import load_dotenv
 from basket import *
+from ticket_collection import *
 import os
 
 load_dotenv()
@@ -20,5 +21,7 @@ select_calendar_details(shadow_root, "Arrive", os.environ.get("ARRIVING_DATE"), 
 add_railcard(shadow_root, os.environ.get("RAILCARD"))
 click_find_times_and_tickets(shadow_root)
 add_to_basket(driver)
+eticket(driver)
+continue_button(driver)
 
 driver.close()
