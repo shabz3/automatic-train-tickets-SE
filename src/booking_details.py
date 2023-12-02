@@ -41,6 +41,7 @@ def select_calendar_details(shadow_root, return_or_arrive, DATE, DEPARTURE_OR_AR
 
     # get month out of DATE. Eg: returns 10 for "14/10/2023"
     parsed_month = dateparser.parse(DATE, settings={"DATE_ORDER": "DMY"}).month
+
     # Get month name for corresponding month number. Eg: gets "March" from 3
     month_name = dateparser.parse(f"{parsed_month}/1").strftime("%B")
 
@@ -121,7 +122,8 @@ def destination_or_arrival(shadow_root, driver, departure_or_arrival, leaving_st
     dropdown.click()
     active_element = driver.switch_to.active_element
     active_element.send_keys(leaving_station)
-    time.sleep(1)
+    # active_element.send_keys(Keys.ENTER)
+    time.sleep(2)
     first_suggestion = shadow_root.find_element(
         By.CLASS_NAME, "otrl-jp__station-autosuggest__item__name"
     )

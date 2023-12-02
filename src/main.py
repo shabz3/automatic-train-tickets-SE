@@ -3,6 +3,8 @@ from driver import *
 from dotenv import load_dotenv
 from basket import *
 from ticket_collection import *
+from login import *
+from monzo import monzo_auth
 import os
 
 load_dotenv()
@@ -20,8 +22,11 @@ select_calendar_details(shadow_root, "Return", os.environ.get("DEPARTING_DATE"),
 select_calendar_details(shadow_root, "Arrive", os.environ.get("ARRIVING_DATE"), os.environ.get("ARRIVE_DEPARTURE_OR_ARRIVAL"), os.environ.get("ARRIVE_TIME"))
 add_railcard(shadow_root, os.environ.get("RAILCARD"))
 click_find_times_and_tickets(shadow_root)
+login(driver)
+enter_details(driver)
 add_to_basket(driver)
 eticket(driver)
 continue_button(driver)
+# monzo_auth()
 
 driver.close()
