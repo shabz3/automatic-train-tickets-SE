@@ -2,10 +2,10 @@ import requests
 
 def send_message(auth_url):
     # Replace 'YOUR_BOT_TOKEN' with your actual bot token
-    bot_token = '6951635287:AAE7jbC2N64gJhBGpcy_OQX8udAlmHLCKSk'
+    bot_token = ''
 
     # Replace 'YOUR_CHAT_ID' with the chat ID where you want to send the message
-    chat_id = '699311747'
+    chat_id = ''
 
     # Create the message text containing the authentication URL
     message_text = f'Click the link to authenticate: {auth_url}'
